@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header#site-header
+    h1(id=site-heading)= title
+  #site-pages 
+    .page
+      section#contact-form
+        div.js-key-stroke-hue-anim-item
+          div.contact-form-textarea-ctn
+            textarea#contact-text(class="indexText") #{textarea} The Contacts database application will list all the contacts and from there the user can view, edit, delete, or add a contact
+        div.contact-form-btn-ctn
+          div(class="ctn-1 ctn-ph-2 flexbox flex-center")
+            div.col-1
+              a( id = "contact-form-send" href="/contacts") View Contacts Database
+            div(class="col-1 contact-form-cta-social")
+              p <a id = "contact-form-send" href="https://github.com/vkatta316/contacts" target="_blank">GitHub</a>
+  
