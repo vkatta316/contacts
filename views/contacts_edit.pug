@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  header(id="list-header")
+    h1= heading
+  if msg
+    ul 
+      each val in msg 
+        li(class="redText")= val.msg
+  form(class="contactGroup" method="POST" action=`/contacts/${contact.id}/edit`)
+    input(type="text" name="firstName" class = "contactInput" placeholder = "First Name"  value= contact.contactData.firstName)
+    input(type="text" name="lastName" class = "contactInput" placeholder = "Last Name"  value= contact.contactData.lastName)
+    input(type="email" name="email" class = "contactInput" placeholder = "Email Address" value= contact.contactData.email)
+    //input(type="text" name="notes" class = "contactInput" placeholder = "Notes" value= contact.text.notes)
+    textarea(name="notes" class="contactInput" placeholder= "Notes" cols="30", rows="6")= contact.contactData.notes
+    button(class="btn")
+      | Save Changes
+  div.contact-form-btn-ctn
+    div(class="ctn-1 ctn-ph-2 flexbox flex-center")
+      div(class ="col-1" name = "lastEdited")
+      div(class="col-1 contact-form-cta-social")
+        a(id = "contact-form-send" href=`/contacts/${contact.id}`) Back
