@@ -1,0 +1,45 @@
+const crypto = require('crypto');
+const Contact = require('./Contact')
+const db = new Map();
+const fs = require('fs');
+const path = require('path');
+
+
+const loadData = () => {
+    const jsonData = fs.readFileSync(path.join(__dirname , '../data/contacts.json'))
+    const contactsArray = JSON.parse(jsonData);
+    console.log('contactsArray AYRA ' +contactsArray);
+    contactsArray.forEach(element => {
+        const aContact = new Contact(element[1].id, element[1].contactData)
+        db.set(aContact.id, aContact)
+    });
+    console.log('KVC MVC ' + db);
+};
+
+const saveData = () => {
+    const stringifyData  = JSON.stringify(Array.from(db));
+    fs.writeFileSync(path.join(__dirname , '../data/contacts.json'), stringifyData);
+};
+
+const repo= {
+    findAll : () => Array.from(db.values()),
+    findById: (uuid) => db.get(uuid), 
+    create: (contact) => {
+        contact.id = crypto.randomUUID();
+        console.info('CONTACT ' + contact);
+        db.set(contact.id , contact);
+        saveData();
+    },
+    deleteById: (uuid) => {
+        db.delete(uuid)
+        saveData();
+    },
+    update: (contact) => {
+        db.set(contact.id, contact)
+        saveData();
+    },
+};
+
+loadData();
+
+module.exports = repo;

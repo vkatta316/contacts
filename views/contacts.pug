@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  header(id="list-header")
+    h1= heading
+  if contacts.length> 0
+    #contacts-wrapper
+      table.tableContents
+        thead 
+          tr 
+            th First Name
+            th Last Name 
+            th Email Address
+            each val in contacts
+              tbody
+                tr
+                  td
+                    a(class = "viewContact" href=`/contacts/${val.id}`)= val.contactData.firstName
+                  td= val.contactData.lastName
+                  td= val.contactData.email
+  footer               
+    div.contact-form-btn-ctn
+          div(class="ctn-1 ctn-ph-2 flexbox flex-center")
+            div.col-1
+              a( id = "contact-form-send" href="/contacts/add") Add a Contact
+            div(class="col-1 contact-form-cta-social")
+              p <a id = "contact-form-send" href="/" >Home</a>
+    

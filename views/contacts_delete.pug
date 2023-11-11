@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  header(id="list-header")
+    h1= heading
+  p.deleteWarning Are you sure you want to delete the following Contact ?
+  if contact.length> 0
+  #contact-wrapper 
+    ul.contact-details 
+      li= `First Name : ${contact.contactData.firstName}`
+      li= `Last Name  :  ${contact.contactData.lastName}`
+      li= `Email      : ${contact.contactData.email}`
+      li= `Notes      :      ${contact.contactData.notes}`
+      li= `Created On : ${contact.contactData.date}`
+  form(class="deleteContact" method="POST" action=`/contacts/${contact.id}/delete`)
+    button(class="btn")
+      | Confirm Delete
+      | 
+    a(class= "cancelContact" href=`/contacts/${contact.id}`) Cancel
