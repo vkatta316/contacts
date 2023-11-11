@@ -11,12 +11,14 @@ block content
       li= `Email      : ${contact.contactData.email}`
       li= `Notes      :      ${contact.contactData.notes}`
       li= `Created On : ${contact.contactData.date}`
-      .imagesContainer 
-        each val in contact.contactData.images
-          img(src= '/' +val alt='contact' style='width:100px; height:100px; padding: 1rem;')
-      form(action=`/contacts/${contact.id}/download`, method='get')
-        button(class="btn")
-          | Download
+      if contact.contactData.images.length> 0
+        .imagesContainer
+          each val in contact.contactData.images
+            img(src= '/' +val alt='contact' style='width:100px; height:100px; padding: 1rem;')
+        form(action=`/contacts/${contact.id}/download`, method='get')
+          button(class="btn")
+            | Download
+
           
   div.contact-form-btn-ctn
     div(class="ctn-1 ctn-ph-2 flexbox flex-center")

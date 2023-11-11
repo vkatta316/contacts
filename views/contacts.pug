@@ -11,6 +11,7 @@ block content
             th First Name
             th Last Name 
             th Email Address
+            th Photo
             each val in contacts
               tbody
                 tr
@@ -18,6 +19,9 @@ block content
                     a(class = "viewContact" href=`/contacts/${val.id}`)= val.contactData.firstName
                   td= val.contactData.lastName
                   td= val.contactData.email
+                  if val.contactData.images.length> 0
+                    td
+                      a(class = "viewContact" href=`/contacts/${val.id}`)= 'Photos Uploaded'
   footer               
     div.contact-form-btn-ctn
           div(class="ctn-1 ctn-ph-2 flexbox flex-center")
