@@ -148,3 +148,171 @@ a.cancelContact {
   height: 781.5px;
   overflow-wrap: break-word;
 }
+
+#contact-form .contact-form-textarea-ctn {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 6.5rem;
+  padding-right: 6.5rem;
+}
+
+.contact-form-btn-ctn {
+  position: fixed;
+  bottom: 20;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  vertical-align: middle;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.js-key-stroke-hue-anim-item {
+  
+  background-color: rgb(203, 255, 222); 
+  filter: hue-rotate(15deg);
+}
+
+.col-1 {
+  width: 50%;
+  display: inline-block;
+    vertical-align: top;
+}
+
+.contact-form-cta-social {
+  text-align: right;
+}
+
+.contact-form-btn-ctn>* {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+#contact-form .contact-form-textarea-ctn {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+#contact-form-send {
+  position: relative;
+  color: #121212;
+  font-size: 2.1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-decoration: underline;
+}
+
+table.contacts-list {
+  padding-left: 1rem;
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  border-spacing: 0.5rem;
+}
+
+ul.contact-details {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteWarning{
+  text-align: center;
+}
+
+.deleteContact{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tableContents{
+    width: 100%;
+    border-spacing: 0;
+    position: relative;
+    z-index: 5;
+    padding-left: 12rem;
+}
+
+.tableContents th {
+  font-family: apercu-bold,sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.25em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 1.5rem 1rem 1.5rem 0;
+  color: #121212;
+  cursor: pointer;
+  cursor: hand;
+  white-space: nowrap;
+}
+
+.tableContents td {
+  padding-top: 1rem;
+}
+
+@media screen and (min-width: 600px){
+  .ctn-ph-2>.col-1 {
+    width: 50%;
+  }
+    
+}
+
+@media screen and (min-width: 600px){
+  .contact-form-btn-ctn {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .contact-form-btn-ctn>* {
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+}
+
+
+@media screen and (min-width: 600px){
+.ctn-ph-2>.col-1 {
+    width: 50%;
+}
+}
+
+@media screen and (min-width: 600px){
+  .contact-form-cta-social {
+    text-align: right;
+}
+}
+
+@media screen and (min-width: 768px){
+  .contact-form-btn-ctn>* {
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+}
+
+@media screen and (min-width: 1028px){
+.tableContents{
+  width: 100%;
+  border-spacing: 0;
+  position: relative;
+  z-index: 5;
+  padding-left: 22rem;
+}
+
+}

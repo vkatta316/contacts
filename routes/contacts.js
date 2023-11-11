@@ -22,6 +22,9 @@ router.post('/add', upload.array('userFiles'),
 /* GET Single Contact. */
 router.get('/:uuid', contactsController.contacts_details_get);
 
+/* Download Single Contact image and multiple images as zip file. */
+router.get('/:uuid/download', contactsController.download_contacts_get);
+
 /* Delete Contact. */
 router.get('/:uuid/delete', contactsController.contacts_delete_get);
 

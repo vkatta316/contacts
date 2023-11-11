@@ -73,6 +73,36 @@ exports.contacts_list = function(req, res, next) {
    
   };
 
+  exports.download_contacts_get = function(req, res, next) {
+    const contact = contactsRepo.findById(req.params.uuid);
+   
+    const downloadImages = contact.contactData.images;
+    console.log('DOWNLOAD CONTACT' +  downloadImages.length);
+    if(downloadImages.length > 1){
+      var zipDownload= [];
+
+      downloadImages.forEach(img => 
+        zipDownload.push(
+          {
+            path: 'public/' + img,
+            name: img
+          }
+        )
+      );
+      console.log('zip download ' + JSON.stringify(zipDownload)); 
+      res.zip(
+      zipDownload
+      );
+    }else{
+      res.download('public/'+downloadImages, function(err) {
+        if(err) {
+            console.log(err);
+        }
+      })
+    }
+    
+  }
+
   /* Delete Contact. */
   exports.contacts_delete_get =  function(req, res, next) {
     const contact = contactsRepo.findById(req.params.uuid);
