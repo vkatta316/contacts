@@ -5,6 +5,7 @@ const multer = require('multer');
 const upload = multer({dest: 'tmp/'});
 const fs = require('node:fs');
 const zip = require('express-zip');
+const crypto = require('crypto')
 
 
 
