@@ -14,7 +14,7 @@ block content
       if contact.contactData.images.length> 0
         .imagesContainer
           each val in contact.contactData.images
-            img(src= '/' +val alt='contact' style='width:100px; height:100px; padding: 1rem;')
+            embed(src= '/' +val alt='contact' style='width:100px; height:100px; padding: 1rem;')
         form(action=`/contacts/${contact.id}/download`, method='get')
           button(class="btn")
             | Download

@@ -14,7 +14,7 @@ block content
       li= `Created On : ${contact.contactData.date}`
       .imagesContainer 
         each val in contact.contactData.images
-          img(src= '/' +val alt='contact' style='width:100px; height:100px; padding: 1rem;')
+          embed(src= '/' +val alt='contact' style='width:100px; height:100px; padding: 1rem;')
   form(class="deleteContact" method="POST" action=`/contacts/${contact.id}/delete`)
     button(class="btn")
       | Confirm Delete
